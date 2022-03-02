@@ -32,8 +32,7 @@ function SpeakerDemographics({
                                  last,
                                  bio,
                                  company,
-                                 twitterHandle,
-                                 favorite,
+                                 twitterHandle
                              }) {
     return (
         <div className="speaker-info">
@@ -59,7 +58,7 @@ function SpeakerDemographics({
     );
 }
 
-function Speaker({speaker}) {
+const Speaker = ({speaker}) => {
     const {id, first, last, sessions} = speaker;
     return (
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12">
