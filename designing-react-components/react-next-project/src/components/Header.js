@@ -8,7 +8,7 @@ const Header = () => {
         <div className="padT4 padB4">
             <div className="d-flex justify-content-between">
                 <div className="d-flex justify-content-between">
-                    <Image alt="SVCC Home Page" src="/images/SVCCLogo.png" width="100" height="25"/>
+                    <Image alt="SVCC Home Page" src="/images/SVCClogo.png" width="100" height="25"/>
                 </div>
                 <div className="light">
                     <h4 className="header-title">
