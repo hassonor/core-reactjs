@@ -1,5 +1,6 @@
 import {useContext} from "react";
 import {ThemeContext} from "../contexts/ThemeContext";
+import Image from 'next/image'
 
 const Header = () => {
     const {theme} = useContext(ThemeContext)
@@ -7,7 +8,7 @@ const Header = () => {
         <div className="padT4 padB4">
             <div className="d-flex justify-content-between">
                 <div className="d-flex justify-content-between">
-                    <img alt="SVCC Home Page" src="/images/SVCCLogo.png"/>
+                    <Image alt="SVCC Home Page" src="/images/SVCCLogo.png" width="100" height="25"/>
                 </div>
                 <div className="light">
                     <h4 className="header-title">
