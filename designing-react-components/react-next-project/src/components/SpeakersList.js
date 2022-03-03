@@ -32,12 +32,13 @@ const SpeakerList = ({showSessions}) => {
                 {speakerData.map(speaker => {
                     return (
                         <Speaker key={speaker.id} speaker={speaker}
-                                 showSessions={showSessions} onFavoriteToggle={() => {
-                            updateRecord({
-                                ...speaker,
-                                favorite: !speaker.favorite
-                            })
-                        }}/>
+                                 showSessions={showSessions}
+                                 onFavoriteToggle={(doneCallback) => {
+                                     updateRecord({
+                                         ...speaker,
+                                         favorite: !speaker.favorite
+                                     }, doneCallback)
+                                 }}/>
                     )
                 })}
             </div>
