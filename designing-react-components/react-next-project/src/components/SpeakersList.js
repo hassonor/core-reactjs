@@ -4,14 +4,17 @@ import useRequestDelay, {REQUEST_STATUS} from "../hooks/useRequestDelay";
 import {data} from "../../SpeakerData";
 import {useContext} from "react";
 import {SpeakerFilterContext} from "../contexts/SpeakerFilterContext";
+import SpeakerAdd from "./SpeakerAdd";
 
-const SpeakerList = ({showSessions}) => {
+const SpeakerList = () => {
 
     const {
         data: speakerData,
         requestStatus,
         error,
-        updateRecord
+        updateRecord,
+        insertRecord,
+        deleteRecord
     } = useRequestDelay(580, data)
 
     const {searchQuery, eventYear} = useContext(SpeakerFilterContext);
@@ -31,6 +34,7 @@ const SpeakerList = ({showSessions}) => {
             className="speakerslist-placeholder"
             ready={requestStatus === REQUEST_STATUS.SUCCESS}
         >
+            <SpeakerAdd eventYear={eventYear} insertRecord={insertRecord}/>
             <div className="row">
                 {speakerData
                     .filter((speaker) => {
@@ -46,13 +50,13 @@ const SpeakerList = ({showSessions}) => {
                     })
                     .map(speaker => {
                         return (
-                            <Speaker key={speaker.id} speaker={speaker} showSessions={showSessions}
-                                     onFavoriteToggle={(doneCallback) => {
-                                         updateRecord({
-                                             ...speaker,
-                                             favorite: !speaker.favorite
-                                         }, doneCallback)
-                                     }}/>
+                            <Speaker
+                                key={speaker.id}
+                                speaker={speaker}
+                                updateRecord={updateRecord}
+                                insertRecord={insertRecord}
+                                deleteRecord={deleteRecord}
+                            />
                         )
                     })}
             </div>
