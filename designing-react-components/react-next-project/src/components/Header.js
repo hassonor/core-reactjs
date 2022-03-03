@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = ({theme}) => {
     return (
         <div className="padT4 padB4">
             <div className="d-flex justify-content-between">
@@ -10,7 +10,9 @@ const Header = () => {
                         Bootcamp
                     </h4>
                 </div>
-                <div className="text-dark">
+                <div className={
+                    theme === "light" ? "" : "text-info"
+                }>
                     Hello Mr. Hasson &nbsp;&nbsp;
                     <span>
                     <a href="#">Logout</a>
