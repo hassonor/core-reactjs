@@ -1,10 +1,9 @@
-import {useContext, useState} from "react";
+import {useContext, useState, memo} from "react";
 import {SpeakerFilterContext} from "../contexts/SpeakerFilterContext";
 import {SpeakerProvider, SpeakerContext} from "../contexts/SpeakerContext";
 import SpeakerDelete from "./SpeakerDelete";
 
 function Session({title, room}) {
-
     return (
         <span className="session w-100">
       {title} <strong>Room: {room.name}</strong>
@@ -116,8 +115,9 @@ const SpeakerDemographics = () => {
     );
 }
 
-const Speaker = ({speaker, updateRecord, insertRecord, deleteRecord}) => {
+const Speaker = memo(function Speaker({speaker, updateRecord, insertRecord, deleteRecord}) {
     const {showSessions} = useContext(SpeakerFilterContext);
+    console.log(`speaker: ${speaker.id} ${speaker.first} ${speaker.last}`)
     return (
         <SpeakerProvider speaker={speaker} updateRecord={updateRecord}
                          insertRecord={insertRecord} deleteRecord={deleteRecord}>
@@ -132,6 +132,10 @@ const Speaker = ({speaker, updateRecord, insertRecord, deleteRecord}) => {
 
         </SpeakerProvider>
     );
+}, areEqualSpeaker);
+
+function areEqualSpeaker(prevProps, nextProps) {
+    return (prevProps.speaker.favorite === nextProps.speaker.favorite);
 }
 
 export default Speaker;
