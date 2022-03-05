@@ -1,4 +1,7 @@
-const SpeakerAdd = ({eventYear, insertRecord}) => {
+import withAuth from "./withAuth";
+
+const SpeakerAdd = ({eventYear, insertRecord, loggedInUser}) => {
+    if (!loggedInUser || loggedInUser.length === 0) return null;
     return (
         <a href="#" className="addSes">
             <i
@@ -31,4 +34,4 @@ const SpeakerAdd = ({eventYear, insertRecord}) => {
 
 }
 
-export default SpeakerAdd;
+export default withAuth(SpeakerAdd);
