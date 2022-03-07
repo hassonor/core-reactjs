@@ -52,3 +52,25 @@ setCount((count) => count + 1);
         * Declare how and when your app moves between states
         * Protects from invalid transitions
     * State charts
+
+## What is a Ref?
+
+___
+
+* Reference an HTML element
+* Store a value that's stable between renders
+* Can mutate the ref's value directly
+* Don't cause a re-render when they change
+
+### When to Use a Ref?
+
+* DOM element reference
+* State that isn't rendered/doesn't change
+* "Instance variables" in func components:
+    * Keep data between renders
+    * Storing a previous value
+    * Track if component is mounted
+    * Hold HTTP request cancel token
+    * Reference a 3rd party library instance
+    * Debounce a call / declare local cache
+    * Store value used in useEffect
