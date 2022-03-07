@@ -3,9 +3,11 @@ import {useParams, useNavigate} from "react-router-dom";
 import useFetch from "./hooks/useFetch";
 import Spinner from "./Spinner";
 import Page404 from "./Page404";
+import {useCart} from "./contexts/cartContext";
 
 
-export default function Detail({dispatch}) {
+export default function Detail() {
+    const {dispatch} = useCart();
     const {id} = useParams();
     const navigate = useNavigate();
     const [sku, setSku] = useState("")

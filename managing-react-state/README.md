@@ -83,3 +83,22 @@ ________________________________________________________________
 * Reuse
 * Unit test
 * Scalability
+
+### useState vs useReducer
+
+________________________________________________________________
+
+* useState:
+    * Easy to implement for most scenarios
+    * Easy to learn
+* useReducer:
+    * More scalable for complex scenarios:
+        * Many complex state transitions
+        * Multiple sub-values
+        * Next state depends on the previous one
+    * Reason about state in isolation
+    * Testable in isolation
+    * Reusable
+
+###
+  
