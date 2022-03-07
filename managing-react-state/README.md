@@ -74,3 +74,12 @@ ___
     * Reference a 3rd party library instance
     * Debounce a call / declare local cache
     * Store value used in useEffect
+
+## Why to use useReducer?
+
+________________________________________________________________
+
+* Extract
+* Reuse
+* Unit test
+* Scalability

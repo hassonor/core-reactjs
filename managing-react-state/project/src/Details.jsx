@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 import Page404 from "./Page404";
 
 
-export default function Detail({addToCart}) {
+export default function Detail({dispatch}) {
     const {id} = useParams();
     const navigate = useNavigate();
     const [sku, setSku] = useState("")
@@ -31,7 +31,7 @@ export default function Detail({addToCart}) {
             </select>
             <p>
                 <button disabled={!sku} className="btn btn-primary" onClick={() => {
-                    addToCart(id, sku);
+                    dispatch({type: "ADD_TO_CART", id, sku});
                     navigate("/cart")
                 }}>Add to Cart
                 </button>
