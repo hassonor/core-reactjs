@@ -100,5 +100,24 @@ ________________________________________________________________
     * Testable in isolation
     * Reusable
 
-###
+## Deciding How to Handle State
+
+____
+
+1. Does it belong in the URL? (current page, current record, sorting, scroll location...)
+    * Keep URL-related state in the URL.
+2. Want to persist data across sessions or make data available offline?
+    * Consider web storage(localStorage, IndexedDB, etc.)
+3. Is it server data?
+    * Try react-query or swr. Using GraphQL? Then consider Relay / Apollo.
+4. Is it a DOM element reference, state doesn't change, or not rendered at all?
+    * Use a ref.
+5. Can it be derived from existing props, state, URL, etc.?
+    * Derive it "on-the-fly" as part of each render (memoize if expensive).
+6. Does only one component use the data?
+    * Use local state.
+7. Do a few related components use it?
+    * Store state in a common parent.
+8. Is it global state? Consider, in order:
+9. Store in App's root component, context, or separate library like Redux.
   
