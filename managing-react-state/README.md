@@ -44,3 +44,11 @@ setCount(count + 1)<br/><br/>
 // Prefer this - Use a function reference existing state<br/>
 setCount((count) => count + 1);
 
+### XState
+
+* Open Source Finite State Machine
+* Key benefits over simple state enums:
+    * Enforce state transitions
+        * Declare how and when your app moves between states
+        * Protects from invalid transitions
+    * State charts
