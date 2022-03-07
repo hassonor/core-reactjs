@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {useParams, useNavigate} from "react-router-dom";
-import useFetch from "./hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 import Spinner from "./Spinner";
 import Page404 from "./Page404";
-import {useCart} from "./contexts/cartContext";
+import {useCart} from "../contexts/cartContext";
 
 
 export default function Detail() {

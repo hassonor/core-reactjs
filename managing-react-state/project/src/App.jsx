@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import Footer from "./Footer";
-import Header from "./Header";
-import Products from "./Products";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Products from "./components/Products";
 import {Routes, Route} from "react-router-dom"
-import Detail from "./Details";
-import Cart from "./Cart";
-import Checkout from "./Checkout";
+import Detail from "./components/Details";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 
 
 export default function App() {

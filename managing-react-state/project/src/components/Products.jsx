@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import "./App.css";
+import "../App.css";
 import Spinner from "./Spinner";
-import useFetch from "./hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 import {useParams, Link} from "react-router-dom";
 import Page404 from "./Page404";
 
