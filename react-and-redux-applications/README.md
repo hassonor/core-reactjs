@@ -8,3 +8,7 @@ ________________________________________________________________
 * Hot Reloading
 * Time-travel debugging
 * Small
+
+### Do I need Redux?
+
+* 

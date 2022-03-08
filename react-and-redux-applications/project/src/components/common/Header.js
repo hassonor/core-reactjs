@@ -15,6 +15,10 @@ export default function Header() {
                 {" | "}
                 <NavLink style={({isActive}) =>
                     isActive ? activeStyle : undefined
+                } to="/courses">Courses</NavLink>
+                {" | "}
+                <NavLink style={({isActive}) =>
+                    isActive ? activeStyle : undefined
                 } to="/about">About</NavLink>
             </nav>
         </header>
