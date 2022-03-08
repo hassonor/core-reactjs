@@ -4,14 +4,20 @@ import {BrowserRouter} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import App from './components/App';
+import configureStore from "../redux/configuerStore";
+import {Provider as ReduxProvider} from "react-redux"
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+const store = configureStore();
+
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
+        <ReduxProvider store={store}>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
+        </ReduxProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
