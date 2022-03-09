@@ -4,7 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import App from './components/App';
-import configureStore from "../redux/configuerStore";
+import configureStore from "./redux/configuerStore";
 import {Provider as ReduxProvider} from "react-redux"
 import './index.css';
 import reportWebVitals from './reportWebVitals';
