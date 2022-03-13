@@ -10,7 +10,7 @@ import Spinner from "../common/Spinner";
 import {toast} from "react-toastify";
 
 
-const ManageCoursePage = ({courses, authors, loadAuthors, loadCourses, saveCourse, ...props}) => {
+export const ManageCoursePage = ({courses, authors, loadAuthors, loadCourses, saveCourse, ...props}) => {
     const navigate = useNavigate();
     const [course, setCourse] = useState({...props.course})
     const [errors, setErrors] = useState({})
