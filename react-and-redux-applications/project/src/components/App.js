@@ -7,6 +7,8 @@ import Footer from "./common/Footer";
 import Page404 from "./Page404";
 import CoursesPage from "./courses/CoursesPage";
 import ManageCoursePage from "./courses/ManageCoursePage";
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 export default function App() {
@@ -24,6 +26,7 @@ export default function App() {
                         <Route path="*" element={<Page404/>}/>
                     </Routes>
                 </main>
+                <ToastContainer autoClose={2000} hideProgressBar/>
             </div>
             <Footer/>
         </>

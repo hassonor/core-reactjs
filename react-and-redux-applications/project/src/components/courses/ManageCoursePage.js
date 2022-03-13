@@ -6,12 +6,15 @@ import {loadAuthors} from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import CourseForm from "./CourseForm";
 import {newCourse} from "../../tools/mockData";
+import Spinner from "../common/Spinner";
+import {toast} from "react-toastify";
 
 
 const ManageCoursePage = ({courses, authors, loadAuthors, loadCourses, saveCourse, ...props}) => {
     const navigate = useNavigate();
     const [course, setCourse] = useState({...props.course})
-    const [errors,] = useState({})
+    const [errors, setErrors] = useState({})
+    const [saving, setSaving] = useState(false);
     const {slug} = useParams();
 
     useEffect(() => {
@@ -40,14 +43,45 @@ const ManageCoursePage = ({courses, authors, loadAuthors, loadCourses, saveCours
         }))
     }
 
-    const handleSave = (event) => {
-        event.preventDefault();
-        saveCourse(course);
-        navigate("/courses")
+    function formIsValid() {
+        const {title, authorId, category} = course;
+        const errors = {};
+
+        if (!title) errors.title = "Title is required.";
+        if (!authorId) errors.author = "Author is required";
+        if (!category) errors.category = "Category is required";
+
+        setErrors(errors);
+        // Form is valid if the errors object still has no properties
+        return Object.keys(errors).length === 0;
     }
 
-    return (
-        <CourseForm course={course} onSave={handleSave} onChange={handleChange} errors={errors} authors={authors}/>
+    function handleSave(event) {
+        event.preventDefault();
+        if (!formIsValid()) return;
+        setSaving(true);
+        saveCourse(course)
+            .then(() => {
+                toast.success("Course were saved.");
+                navigate("/courses");
+            })
+            .catch(error => {
+                setSaving(false);
+                setErrors({onSave: error.message});
+            });
+    }
+
+    return authors.length === 0 || courses.length === 0 ? (
+        <Spinner/>
+    ) : (
+        <CourseForm
+            course={course}
+            errors={errors}
+            authors={authors}
+            onChange={handleChange}
+            onSave={handleSave}
+            saving={saving}
+        />
     );
 }
 
