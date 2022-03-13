@@ -123,3 +123,61 @@ console.groupEnd()
 * Consistency
 * Purity
 * Easier testing
+
+## Test Frameworks
+
+________________________________________________________________
+
+* Jest
+* Mocha
+* Jasmine
+* Tape
+* AVA
+
+#### React Test Utils: Two Rendering Options
+
+* **shallowRender**:
+    * Render single component
+    * No DOM Required
+    * Fast and Simple
+      <br/><br/>
+* **renderIntoDocument**:
+    * Render component and children
+    * DOM Required
+
+#### React Test Utils: DOM Interactions
+
+* **findRenderedDOMComponentWithTag**
+* **scryRenderedDOMComponentWithTag**
+* **Stimulate**
+    * Clicks
+    * Keypresses
+    * Etc.
+* See More: https://reactjs.org/docs/test-utils.html
+
+#### Enzyme
+
+________________________________________________________________
+
+* **findRenderedDOMComponentWithTag** -> **find**
+* **scryRenderedDOMComponentWithTag** -> **find**
+* **scryRenderedDOMComponentWithClass** -> **find**
+
+#### Enzyme is An Abstraction
+
+* **Behind the scenes**:
+    * React Test Utils
+    * JSDOM (In-memory DOM)
+    * Cheerio (Fast jQuery style selectors)
+
+#### Enzyme render
+
+Two ways to render a React component for testing with Enzyme:
+
+1. __shallow__ - Renders single component
+    1. No DOM is created.
+    2. No child components are rendered.
+2. __mount__ - Renders component with children
+    1. DOM is created in memory via JSDOM
+    2. Child components are rendered
+
