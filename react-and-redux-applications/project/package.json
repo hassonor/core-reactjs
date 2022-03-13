@@ -26,8 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prestart:api": "node tools/createMockDb.js",
-    "start:api": "node tools/apiServer.js",
+    "prestart:api": "node src/tools/createMockDb.js",
+    "start:api": "node src/tools/apiServer.js",
     "start:withmock": "start-server-and-test start http-get://localhost:3000 start:api",
     "build": "react-scripts build",
     "test": "react-scripts test",
