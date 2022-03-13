@@ -19,6 +19,7 @@
     "immer": "^9.0.12",
     "json-server": "^0.17.0",
     "node-fetch": "^2.6.7",
+    "npm-run-all": "^4.1.5",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.0",
@@ -37,11 +38,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "run-p start:dev start:api",
+    "start:dev": "react-scripts start",
     "prestart:api": "node src/tools/createMockDb.js",
     "start:api": "node src/tools/apiServer.js",
-    "start:withmock": "start-server-and-test start http-get://localhost:3000 start:api",
+    "prebuild": "run-p clean:build",
     "build": "react-scripts build",
+    "clean:build": "rimraf ./build && mkdir build",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll",
     "eject": "react-scripts eject"

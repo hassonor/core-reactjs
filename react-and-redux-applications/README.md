@@ -155,7 +155,7 @@ ________________________________________________________________
     * Etc.
 * See More: https://reactjs.org/docs/test-utils.html
 
-#### Enzyme
+### Enzyme
 
 ________________________________________________________________
 
@@ -180,4 +180,23 @@ Two ways to render a React component for testing with Enzyme:
 2. __mount__ - Renders component with children
     1. DOM is created in memory via JSDOM
     2. Child components are rendered
+
+### Testing Redux
+
+________________________________________________________________
+
+#### Testing Connected Components
+
+They are wrapped in a call to connect! What do we do?
+
+1. Wrap with <Provider>
+2. Add named export for unconnected component (Simpler);
+
+#### Testing Thunks
+
+__Mock two things__:
+
+* Store -> redux-mock-store
+* HTTP calls -> fetch-mock
+
 
