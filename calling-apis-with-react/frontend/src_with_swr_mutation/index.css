@@ -1,0 +1,32 @@
+body {
+  font-family: 'Open Sans';
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 110px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.font-upper {
+  text-transform: uppercase;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-large {
+  font-size: large;
+}
+
+.font-xxlarge {
+  font-size: xx-large;
+}
+
+.max-100 {
+  max-height: 100px;
+}

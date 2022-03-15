@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Globoticket</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Open Sans';
+        }
+
+        .font-upper {
+            text-transform: uppercase;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .font-large {
+            font-size: large;
+        }
+
+        .font-xxlarge {
+            font-size: xx-large;
+        }
+
+        .max-100 {
+            max-height: 100px;
+        }
+
+        .btn-primary-themed {
+            color: #fff;
+            background-color: green;
+            border-color: green;
+            border-radius: 25px !important;
+        }
+
+        .btn-secondary-themed {
+            color: green;
+            border-color: green;
+            background-color: lightgreen;
+            border-radius: 25px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto ms-3 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="#"><img src="logo.png" alt="Globoticket logo" /></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" id="lnkCart" href="#">
+                            <span class="bi bi-cart-plus-fill text-white font-xxlarge"></span>
+                            <span class="font-upper font-bold text-white ms-4">
+                                <span class="font-xxlarge align-middle">0</span>
+                                <span class="align-middle ms-2">Tickets</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="eventtable">
+        <div class="container">
+            <div class="btn-group mt-5">
+                <select class="form-select w-auto font-upper font-bold me-3" aria-label="Select Month">
+                    <option value="ALL">All</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+                <button type="button"
+                    class="btn btn-secondary btn-secondary-themed btn-md me-3 font-upper">Filter</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Artist</th>
+                        <th scope="col">Price</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="align-middle">
+                        <td>
+                            <img class="img-fluid max-100" src="cover.png" alt="Cover">
+                        </td>
+                        <td class="max-50">
+                            11/11/2021<br>2:34 PM
+                        </td>
+                        <td class="max-50">
+                            Binary Bovine Tour
+                        </td>
+                        <td class="max-50">
+                            Digital Cowboys
+                        </td>
+                        <td class="max-50">
+                            $99
+                        </td>
+                        <td class="max-50">
+                            <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to
+                                Cart</button>
+                        </td>
+                    </tr>
+                    <tr class="align-middle">
+                        <td>
+                            <img class="img-fluid max-100" src="cover.png" alt="Cover">
+                        </td>
+                        <td class="max-50">
+                            11/11/2021<br>2:34 PM
+                        </td>
+                        <td class="max-50">
+                            Binary Bovine Tour
+                        </td>
+                        <td class="max-50">
+                            Digital Cowboys
+                        </td>
+                        <td class="max-50">
+                            $99
+                        </td>
+                        <td class="max-50">
+                            <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to
+                                Cart</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container" id="carttable">
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Event</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"># Tickets</th>
+                    <th scope="col">Total</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="align-middle">
+                    <td>
+                        11/11/2021 2:34 PM<br>Binary Bovine Tour<br>Digital Cowboys
+                    </td>
+                    <td class="max-50">
+                        $99
+                    </td>
+                    <td class="max-50">
+                        <div class="btn-group">
+                            <input type="number" class="w-auto" value="2">
+                        </div>
+                    </td>
+                    <td>
+                        $198
+                    </td>
+                    <td>
+                        <a class="nav-link" href="#">
+                            <span class="bi bi-trash-fill font-large"></span>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="align-middle">
+                    <td>
+                        11/11/2021 2:34 PM<br>Binary Bovine Tour<br>Digital Cowboys
+                    </td>
+                    <td class="max-50">
+                        $99
+                    </td>
+                    <td class="max-50">
+                        <div class="btn-group">
+                            <input type="number" class="w-auto" value="1">
+                        </div>
+                    </td>
+                    <td>
+                        $99
+                    </td>
+                    <td>
+                        <a class="nav-link" href="#">
+                            <span class="bi bi-trash-fill font-large"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="align-middle">
+                    <td colspan="5" class="text-center">
+                        <button type="button" id="btnOrder"
+                            class="btn btn-primary btn-primary-themed btn-md font-upper">Order for $297</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+        var eventtable = document.getElementById("eventtable");
+        var carttable = document.getElementById("carttable");
+        carttable.style.display = "none";
+        document.getElementById("lnkCart").addEventListener(
+            "click",
+            (e) => {
+                e.preventDefault();
+                eventtable.style.display = "none";
+                carttable.style.display = "";
+            },
+            false);
+        document.getElementById("btnOrder").addEventListener(
+            "click",
+            (e) => {
+                e.preventDefault();
+                carttable.style.display = "none";
+                eventtable.style.display = "";
+            },
+            false);
+    </script>
+</body>
+
+</html>
