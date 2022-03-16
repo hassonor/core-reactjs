@@ -2,7 +2,7 @@
 
 ________________________________________________________________
 
-## The Commonly Used React Hooks
+### The Commonly Used React Hooks
 
 * useState
 * useRef
@@ -20,6 +20,13 @@ ________________________________________________________________
 * React Functional Component(rfc):
     * useEffect(()=>{...}) (both for componentDidMount and componentDidUpdate)
     * useEffect(()=> {...return()=>{...}} (equal to componentWillUnmount)
+
+### More React Hooks
+
+* useContext
+* useReducer
+* useCallback
+* useMemo
 
 
 
