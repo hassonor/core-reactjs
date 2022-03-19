@@ -28,5 +28,9 @@ ________________________________________________________________
 * useCallback
 * useMemo
 
+### Redux
+
+Redux can be thought of as a central store that holds an entire applications state. Each of the app components can
+access the stored state without requiring passing data or functions from one component to another.
 
 
