@@ -1,6 +1,8 @@
 import React from 'react';
 import Home from "./Home";
 import Speakers from "./Speakers";
+import {GlobalProvider} from "./GlobalState";
+import {FavoriteClickCountProvider} from "./FavoriteClickCountContext";
 
 export const ConfigContext = React.createContext();
 
@@ -18,7 +20,11 @@ const configValue = {
 const App = ({pageName}) => {
     return (
         <ConfigContext.Provider value={configValue}>
-            <div>{pageToShow(pageName)}</div>
+            <GlobalProvider>
+                <FavoriteClickCountProvider>
+                    <div>{pageToShow(pageName)}</div>
+                </FavoriteClickCountProvider>
+            </GlobalProvider>
         </ConfigContext.Provider>
     )
 }
