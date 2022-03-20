@@ -23,7 +23,7 @@ const ExpenseForm = ({onSaveExpenseData}) => {
         event.preventDefault();
         const expenseData = {
             title: inputTitle,
-            amount: inputAmount,
+            amount: +inputAmount,
             date: new Date(inputDate).toISOString()
         }
         onSaveExpenseData(expenseData);
