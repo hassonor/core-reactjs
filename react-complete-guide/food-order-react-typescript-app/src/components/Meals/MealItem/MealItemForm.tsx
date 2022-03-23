@@ -1,13 +1,21 @@
-import React, { useRef, useState} from 'react';
+import React, {SyntheticEvent, useRef, useState} from 'react';
 import styles from './MealItemForm.module.css';
 import Input from "../../UI/Input/Input";
 
-const MealItemForm = (props)=>{
+const MealItemForm = (props:any)=>{
 
     const [amountIsValid, setAmountIsValid] = useState(true);
-    const amountInputRef = useRef();
+    const amountInputRef = useRef<HTMLInputElement | null>(null);
+    const inputsAttrToChildren = {
+        id: 'amount_' + props.id,
+        type: 'number',
+        min: '1',
+        max: '100',
+        step: '1',
+        defaultValue: '1'
+    };
 
-    const submitHandler = (event) => {
+    const submitHandler = (event:SyntheticEvent) => {
         event.preventDefault();
         const enteredAmount = amountInputRef.current.value;
         const enteredAmountNumber = +enteredAmount;
@@ -20,15 +28,8 @@ const MealItemForm = (props)=>{
     };
 
     return (<form className={styles.form} onSubmit={submitHandler}>
-        <Input  ref={amountInputRef}
-                label="Amount" input={{
-            id: 'amount_' + props.id,
-            type: 'number',
-            min: '1',
-            max: '100',
-            step: '1',
-            defaultValue: '1'
-        }}/>
+        <Input
+            {...{ label: "Amount", input: inputsAttrToChildren }} ref={amountInputRef}/>
         <button>+Add</button>
         {!amountIsValid && <p>Please enter a valid amount (1-100).</p>}
     </form>)
