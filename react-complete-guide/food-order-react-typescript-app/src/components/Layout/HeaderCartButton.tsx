@@ -1,11 +1,11 @@
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import styles from './HeaderCartButton.module.css'
 import CartIcon from "../Cart/CartIcon";
-import CartContext from "../../store/contexts/cart-context";
+import {useCartContext} from "../../store/providers/CartProvider";
 
 const HeaderCartButton = (props:any):JSX.Element => {
     const [highlightedButton, setHighlightedButton] = useState(false);
-    const cartCtx = useContext(CartContext);
+    const cartCtx = useCartContext();
     const numberOfCartItems = cartCtx.items.reduce((curNumber, item)=>{
         return curNumber + item.amount},0);
 

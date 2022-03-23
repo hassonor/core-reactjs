@@ -1,8 +1,7 @@
 import styles from './MealItem.module.css';
 import MealItemForm from "./MealItemForm";
-import {useContext} from "react";
-import CartContext from "../../../store/contexts/cart-context";
 import FoodItemModel from "../../../models/FoodItemModel";
+import {useCartContext} from "../../../store/providers/CartProvider";
 
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 
 const MealItem = ({item}: Props):JSX.Element => {
    const price = `$${item.price.toFixed(2)}`;
-    const cartCtx= useContext(CartContext);
+    const cartCtx = useCartContext();
 
    const addToCartHandler = (amount:number):void => {
        cartCtx.addItem({

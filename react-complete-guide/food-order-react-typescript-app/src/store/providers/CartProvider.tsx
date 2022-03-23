@@ -1,4 +1,4 @@
-import {ReactNode, useReducer} from 'react';
+import {ReactNode, useContext, useReducer} from 'react';
 
 import CartContext from '../contexts/cart-context';
 import CartItemModel from "../../models/CartItemModel";
@@ -17,7 +17,7 @@ enum CartActionType {
 interface CartAction {
     item?: any;
     type: CartActionType;
-    id?: string;
+    id?:string;
 }
 
 
@@ -28,7 +28,7 @@ defaultCartState = {
     totalAmount: 0,
 };
 
-const cartReducer = (state: CartState = new CartState(), action: CartAction) => {
+const cartReducer = (state:CartState = new CartState(), action:CartAction) => {
     if (action.type === CartActionType.AddItem) {
         const updatedTotalAmount =
             state.totalAmount + action.item.price * action.item.amount;
@@ -65,7 +65,7 @@ const cartReducer = (state: CartState = new CartState(), action: CartAction) => 
         if (existingItem.amount === 1) {
             updatedItems = state.items.filter(item => item.id !== action.id);
         } else {
-            const updatedItem = {...existingItem, amount: existingItem.amount - 1};
+            const updatedItem = { ...existingItem, amount: existingItem.amount - 1 };
             updatedItems = [...state.items];
             updatedItems[existingCartItemIndex] = updatedItem;
         }
@@ -89,12 +89,12 @@ const CartProvider = ({children}: CartProviderProps) => {
         defaultCartState
     );
 
-    const addItemToCartHandler = (item: CartItemModel) => {
-        dispatchCartAction({type: CartActionType.AddItem, item: item});
+    const addItemToCartHandler = (item:CartItemModel) => {
+        dispatchCartAction({ type: CartActionType.AddItem, item: item });
     };
 
-    const removeItemFromCartHandler = (id: string) => {
-        dispatchCartAction({type: CartActionType.RemoveItem, id: id});
+    const removeItemFromCartHandler = (id:string) => {
+        dispatchCartAction({ type: CartActionType.RemoveItem, id: id });
     };
 
     const cartContext = {
@@ -110,5 +110,14 @@ const CartProvider = ({children}: CartProviderProps) => {
         </CartContext.Provider>
     );
 };
+
+export function useCartContext(){
+    const context = useContext(CartContext);
+
+    if(context === undefined){
+        throw new Error('useCartContext should be used within an CartProvider');
+    }
+    return context;
+}
 
 export default CartProvider;

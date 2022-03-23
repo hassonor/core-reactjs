@@ -1,23 +1,21 @@
 import styles from './Cart.module.css';
 import Modal from "../UI/Modal/Modal";
-import CartContext from "../../store/contexts/cart-context";
-import {useContext} from "react";
 import CartItem from "./CartItem";
-import FoodItemModel from "../../models/FoodItemModel";
 import CartItemModel from "../../models/CartItemModel";
+import {useCartContext} from "../../store/providers/CartProvider";
 
-const Cart = (props: any): JSX.Element => {
-    const cartCtx = useContext(CartContext);
+const Cart= (props:any): JSX.Element => {
+    const cartCtx = useCartContext();
 
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
     const hasItems = cartCtx.items.length > 0;
 
-    const cartItemRemoveHandler = (id: string) => {
+    const cartItemRemoveHandler = (id:string) => {
         cartCtx.removeItem(id);
     };
 
-    const cartItemAddHandler = (item: CartItemModel) => {
-        cartCtx.addItem({...item, amount: 1});
+    const cartItemAddHandler = (item:CartItemModel) => {
+        cartCtx.addItem({...item, amount:1});
     };
 
     const cartItems = (
