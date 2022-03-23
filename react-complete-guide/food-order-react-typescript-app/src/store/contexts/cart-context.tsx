@@ -2,12 +2,14 @@ import React from 'react';
 import CartItemModel from "../../models/CartItemModel";
 
 
-const CartContext = React.createContext({
-    items: [],
-    totalAmount: 0,
-    addItem: (item:CartItemModel) =>{},
-    removeItem: (id:string)=>{}
-});
+interface CartContextValues {
+    items: CartItemModel[],
+    totalAmount: number,
+    addItem: (item: CartItemModel) => void,
+    removeItem: (id: string) => void
+}
+
+const CartContext = React.createContext<undefined | CartContextValues>(undefined);
 
 
 export default CartContext;

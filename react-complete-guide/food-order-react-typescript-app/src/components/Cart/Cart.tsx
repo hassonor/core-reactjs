@@ -4,19 +4,20 @@ import CartContext from "../../store/contexts/cart-context";
 import {useContext} from "react";
 import CartItem from "./CartItem";
 import FoodItemModel from "../../models/FoodItemModel";
+import CartItemModel from "../../models/CartItemModel";
 
-const Cart= (props:any): JSX.Element => {
+const Cart = (props: any): JSX.Element => {
     const cartCtx = useContext(CartContext);
 
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
     const hasItems = cartCtx.items.length > 0;
 
-    const cartItemRemoveHandler = (id:string) => {
+    const cartItemRemoveHandler = (id: string) => {
         cartCtx.removeItem(id);
     };
 
-    const cartItemAddHandler = (item:FoodItemModel) => {
-        cartCtx.addItem({...item, amount:1});
+    const cartItemAddHandler = (item: CartItemModel) => {
+        cartCtx.addItem({...item, amount: 1});
     };
 
     const cartItems = (
