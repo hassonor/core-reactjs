@@ -15,18 +15,23 @@ function App(): JSX.Element {
     const fetchMoviesHandler = useCallback(async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get("http://swapi.dev/api/films/");
+            const response = await axios.get(`${process.env.REACT_APP_FIREBASE_DB_URL}/movies.json`);
 
-            const moviesResponse = await response.data
-            const transformedMovies = moviesResponse.results.map((movieData: MovieModel) => {
-                return {
-                    episode_id: movieData.episode_id,
-                    title: movieData.title,
-                    opening_crawl: movieData.opening_crawl,
-                    release_date: movieData.release_date
-                }
-            })
-            setMovies(transformedMovies);
+            const data = await response.data
+            const loadedMovies = [];
+
+            for (const key in data) {
+                loadedMovies.push({
+                    id: key,
+                    title: data[key].movie.title,
+                    opening_crawl: data[key].movie.opening_crawl,
+                    release_date: data[key].movie.release_date
+                });
+            }
+
+            setMovies(loadedMovies)
+
+            setMovies(loadedMovies);
         } catch (err) {
             const errors = err as Error | AxiosError;
             setError(errors.message);
@@ -40,8 +45,17 @@ function App(): JSX.Element {
         fetchMoviesHandler();
     }, [fetchMoviesHandler])
 
-    function addMovieHandler(movie: MovieModel) {
-        console.log(movie);
+    async function addMovieHandler(movie: MovieModel) {
+        try {
+
+
+            const response = await axios.post(`${process.env.REACT_APP_FIREBASE_DB_URL}/movies.json`, {movie});
+            const data = await response.data;
+            console.log(data);
+        } catch (err) {
+            const errors = err as Error | AxiosError;
+            setError(errors.message);
+        }
     }
 
 

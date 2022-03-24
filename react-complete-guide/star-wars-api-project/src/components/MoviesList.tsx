@@ -15,7 +15,7 @@ const MovieList = (props: MovieListProps): JSX.Element => {
         <ul className={styles['movies-list']}>
             {props.movies.map((movie) => (
                 <Movie
-                    key={movie.episode_id}
+                    key={movie.episode_id + Math.random().toFixed(4)}
                     movie={movie}
                 />
             ))}
