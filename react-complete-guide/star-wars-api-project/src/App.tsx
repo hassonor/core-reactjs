@@ -4,6 +4,7 @@ import MoviesList from './components/MoviesList';
 import './App.css';
 import axios, {AxiosError} from "axios";
 import MovieModel from "./models/MovieModel";
+import AddMovie from "./components/AddMovie";
 
 function App(): JSX.Element {
     const [movies, setMovies] = useState([]);
@@ -39,6 +40,10 @@ function App(): JSX.Element {
         fetchMoviesHandler();
     }, [fetchMoviesHandler])
 
+    function addMovieHandler(movie: MovieModel) {
+        console.log(movie);
+    }
+
 
     let content = <p>Found no movies.</p>;
     if (movies.length > 0) {
@@ -56,11 +61,12 @@ function App(): JSX.Element {
     return (
         <React.Fragment>
             <section>
-                <button onClick={fetchMoviesHandler}>Fetch Movies</button>
+                <AddMovie onAddMovie={addMovieHandler}/>
             </section>
             <section>
-                {content}
+                <button onClick={fetchMoviesHandler}>Fetch Movies</button>
             </section>
+            <section>{content}</section>
         </React.Fragment>
     );
 }
