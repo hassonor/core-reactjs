@@ -15,7 +15,7 @@ const MovieList = (props: MovieListProps): JSX.Element => {
         <ul className={styles['movies-list']}>
             {props.movies.map((movie) => (
                 <Movie
-                    key={movie.id}
+                    key={movie.episode_id}
                     movie={movie}
                 />
             ))}

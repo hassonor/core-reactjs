@@ -11,8 +11,8 @@ const Movie = (props: MovieProps): JSX.Element => {
     return (
         <li className={styles.movie}>
             <h2>{props.movie.title}</h2>
-            <h3>{props.movie.releaseDate}</h3>
-            <p>{props.movie.openingText}</p>
+            <h3>{props.movie.release_date}</h3>
+            <p>{props.movie.opening_crawl}</p>
         </li>
     );
 };

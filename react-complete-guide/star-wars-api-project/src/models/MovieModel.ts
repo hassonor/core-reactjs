@@ -1,8 +1,8 @@
 class MovieModel {
-    public id: number;
+    public episode_id: number;
     public title: string;
-    public releaseDate: string;
-    public openingText: string;
+    public release_date: string;
+    public opening_crawl: string;
 }
 
 export default MovieModel;
