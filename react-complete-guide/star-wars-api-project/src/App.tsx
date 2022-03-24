@@ -15,7 +15,7 @@ function App(): JSX.Element {
     const fetchMoviesHandler = useCallback(async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get(`${process.env.REACT_APP_FIREBASE_DB_URL}/movies.json`);
+            const response = await axios.get(`${process.env.REACT_APP_FIREBASE_DB_URL}`);
 
             const data = await response.data
             const loadedMovies = [];
@@ -28,6 +28,7 @@ function App(): JSX.Element {
                     release_date: data[key].movie.release_date
                 });
             }
+
 
             setMovies(loadedMovies)
 
@@ -49,7 +50,7 @@ function App(): JSX.Element {
         try {
 
 
-            const response = await axios.post(`${process.env.REACT_APP_FIREBASE_DB_URL}/movies.json`, {movie});
+            const response = await axios.post(`${process.env.REACT_APP_FIREBASE_DB_URL}`, {movie});
             const data = await response.data;
             console.log(data);
         } catch (err) {

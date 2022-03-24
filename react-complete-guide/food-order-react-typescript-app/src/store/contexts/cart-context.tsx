@@ -2,11 +2,12 @@ import React from 'react';
 import CartItemModel from "../../models/CartItemModel";
 
 
-interface CartContextValues{
+interface CartContextValues {
     items: CartItemModel[],
     totalAmount: number,
-    addItem: (item:CartItemModel) => void,
-    removeItem: (id:string)=> void
+    addItem: (item: CartItemModel) => void,
+    removeItem: (id: string) => void
+    clearCart: () => void
 }
 
 const CartContext = React.createContext<undefined | CartContextValues>(undefined);
