@@ -9,3 +9,4 @@ ____
     1. Don't call them in nested functions
     2. Don't call them in any block statements
 3. Extra rule for useEffect(): __ALWAYS__ add everything you refer to inside of useEffect() as a dependency!
+
