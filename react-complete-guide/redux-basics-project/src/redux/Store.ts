@@ -1,10 +1,11 @@
-import {createStore} from 'redux';
+import {combineReducers, createStore} from 'redux';
 import {counterReducer} from "./CounterState";
+import {authReducer} from "./AuthState";
 
-export interface RootState {
-    counter: number
-}
 
-const store = createStore(counterReducer);
+const reducers = combineReducers({authState: authReducer, counterState: counterReducer})
+export type RootState = ReturnType<typeof reducers>;
+
+const store = createStore(reducers);
 
 export default store;
