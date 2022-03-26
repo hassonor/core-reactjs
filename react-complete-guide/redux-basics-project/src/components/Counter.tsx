@@ -1,5 +1,4 @@
 import classes from './Counter.module.css';
-import {useSelector, useDispatch} from "react-redux";
 
 import {
     CounterDecrementAction,
@@ -7,19 +6,13 @@ import {
     CounterIncrementAction,
     CounterToggle
 } from "../redux/CounterState";
-import {RootState} from "../redux/Store";
-
+import {useAppDispatch, useAppSelector} from "../redux/hooks";
 
 const Counter = (): JSX.Element => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    // TS infers type: (state: RootState) => number
-    const selectCounter = (state: RootState) => state.counterState.counter
-    const selectShowToggle = (state: RootState) => state.counterState.showCounter
-
-    // TS infers `counter` is number
-    const counter = useSelector(selectCounter)
-    const showToggle = useSelector(selectShowToggle);
+    const counter = useAppSelector((state) => state.counterState.counter)
+    const showToggle = useAppSelector((state) => state.counterState.showCounter);
 
     const incrementHandler = () => {
         dispatch(CounterIncrementAction())

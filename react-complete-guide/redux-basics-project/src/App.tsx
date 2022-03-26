@@ -1,13 +1,12 @@
 import Counter from './components/Counter';
 import Header from "./components/Header";
 import Auth from "./components/Auth";
-import {useSelector} from "react-redux";
 import UserProfile from "./components/UserProfile";
-import {RootState} from './redux/Store';
+import {useAppSelector} from './redux/hooks';
 
 
 function App() {
-    const isAuth = useSelector((state: RootState) => state.authState.isAuthenticated)
+    const isAuth = useAppSelector((state) => state.authState.isAuthenticated)
     return (
         <>
             <Header/>

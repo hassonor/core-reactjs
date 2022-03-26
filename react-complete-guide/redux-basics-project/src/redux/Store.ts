@@ -4,8 +4,11 @@ import {authReducer} from "./AuthState";
 
 
 const reducers = combineReducers({authState: authReducer, counterState: counterReducer})
-export type RootState = ReturnType<typeof reducers>;
+
 
 const store = createStore(reducers);
+
+export type RootState = ReturnType<typeof reducers>;
+export type AppDispatch = typeof store.dispatch
 
 export default store;

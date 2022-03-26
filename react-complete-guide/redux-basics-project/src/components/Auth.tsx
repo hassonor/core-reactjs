@@ -1,10 +1,10 @@
 import classes from './Auth.module.css';
 import {SyntheticEvent} from "react";
-import {useDispatch} from "react-redux";
 import {AuthLoginAction} from "../redux/AuthState";
+import {useAppDispatch} from "../redux/hooks";
 
 const Auth = (): JSX.Element => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const loginHandler = (event: SyntheticEvent) => {
         event.preventDefault();
         dispatch(AuthLoginAction());
