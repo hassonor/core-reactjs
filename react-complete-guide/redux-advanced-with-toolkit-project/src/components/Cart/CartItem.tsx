@@ -1,28 +1,23 @@
+import {useDispatch} from 'react-redux';
+
 import classes from './CartItem.module.css';
-import {useAppDispatch} from "../../redux/hooks";
-import {productAddedAction, productDeletedAction} from "../../redux/CartState";
-import ProductModel from "../../models/ProductModel";
+import {cartActions} from '../../store/cart-slice';
 
-
-interface ProductCardProps {
-    item: ProductModel;
-}
-
-const CartItem = (props: ProductCardProps) => {
-    const dispatch = useAppDispatch();
+const CartItem = (props: any) => {
+    const dispatch = useDispatch();
 
     const {title, quantity, total, price, id} = props.item;
 
     const removeItemHandler = () => {
-        dispatch(productDeletedAction(id));
+        dispatch(cartActions.removeItemFromCart(id));
     };
 
     const addItemHandler = () => {
         dispatch(
-            productAddedAction({
+            cartActions.addItemToCart({
                 id,
                 title,
-                price
+                price,
             })
         );
     };

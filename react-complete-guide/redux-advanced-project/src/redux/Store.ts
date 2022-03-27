@@ -1,8 +1,9 @@
 import {combineReducers, createStore} from 'redux';
-import {uiReducer} from "./UIState";
+import {uiReducer} from "./UiState";
+import {cartReducer} from "./CartState";
 
 
-const reducers = combineReducers({uiState: uiReducer})
+const reducers = combineReducers({uiState: uiReducer, cartState: cartReducer})
 
 
 const store = createStore(reducers);

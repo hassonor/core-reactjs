@@ -1,10 +1,12 @@
+import {useSelector} from 'react-redux';
+
 import Card from '../UI/Card';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
-import {useAppSelector} from "../../redux/hooks";
+import {RootState} from "../../store";
 
 const Cart = () => {
-    const cartItems = useAppSelector((state) => state.cartState.items);
+    const cartItems = useSelector((state: RootState) => state.cart.items);
 
     return (
         <Card className={classes.cart}>
@@ -15,7 +17,7 @@ const Cart = () => {
                         key={item.id}
                         item={{
                             id: item.id,
-                            title: item.title,
+                            title: item.name,
                             quantity: item.quantity,
                             total: item.totalPrice,
                             price: item.price,
