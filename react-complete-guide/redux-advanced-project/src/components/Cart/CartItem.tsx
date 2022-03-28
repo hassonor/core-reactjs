@@ -11,34 +11,29 @@ interface ProductCardProps {
 const CartItem = (props: ProductCardProps) => {
     const dispatch = useAppDispatch();
 
-    const {title, quantity, total, price, id} = props.item;
 
     const removeItemHandler = () => {
-        dispatch(productDeletedAction(id));
+        dispatch(productDeletedAction(props.item.id));
     };
 
     const addItemHandler = () => {
         dispatch(
-            productAddedAction({
-                id,
-                title,
-                price
-            })
+            productAddedAction(props.item)
         );
     };
 
     return (
         <li className={classes.item}>
             <header>
-                <h3>{title}</h3>
+                <h3>{props.item.title}</h3>
                 <div className={classes.price}>
-                    ${total.toFixed(2)}{' '}
-                    <span className={classes.itemprice}>(${price.toFixed(2)}/item)</span>
+                    ${props.item.total.toFixed(2)}{' '}
+                    <span className={classes.itemprice}>(${props.item.price.toFixed(2)}/item)</span>
                 </div>
             </header>
             <div className={classes.details}>
                 <div className={classes.quantity}>
-                    x <span>{quantity}</span>
+                    x <span>{props.item.quantity}</span>
                 </div>
                 <div className={classes.actions}>
                     <button onClick={removeItemHandler}>-</button>

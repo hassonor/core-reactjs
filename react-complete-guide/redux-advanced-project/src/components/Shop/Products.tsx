@@ -21,13 +21,10 @@ const Products = () => {
         <section className={classes.products}>
             <h2>Buy your favorite products</h2>
             <ul>
-                {DUMMY_PRODUCTS.map((product) => (
+                {DUMMY_PRODUCTS.map((item) => (
                     <ProductItem
-                        key={product.id}
-                        id={product.id}
-                        title={product.title}
-                        price={product.price}
-                        description={product.description}
+                        key={item.id}
+                        item={item}
                     />
                 ))}
             </ul>

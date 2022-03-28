@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import Card from '../UI/Card';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
-import {RootState} from "../../store";
+import {RootState} from "../../store/store";
 
 const Cart = () => {
     const cartItems = useSelector((state: RootState) => state.cart.items);

@@ -5,7 +5,9 @@ class ProductModel {
     public quantity?: number;
     public totalPrice?: number;
     public total?: number;
-    public price: number;
+    public price?: number;
 }
 
 export default ProductModel;
+
+

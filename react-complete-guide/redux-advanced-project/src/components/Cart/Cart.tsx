@@ -5,7 +5,6 @@ import {useAppSelector} from "../../redux/hooks";
 
 const Cart = () => {
     const cartItems = useAppSelector((state) => state.cartState.items);
-
     return (
         <Card className={classes.cart}>
             <h2>Your Shopping Cart</h2>

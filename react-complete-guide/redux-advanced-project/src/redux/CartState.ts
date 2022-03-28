@@ -13,7 +13,7 @@ export enum CartActionType {
 
 export interface CartAction {
     type: CartActionType;
-    payload?: any;
+    payload?: any; // מטען שילוח
 }
 
 
@@ -32,36 +32,38 @@ export function cartReducer(currentState: CartState = new CartState(), action: C
     const newState = {...currentState};
 
     switch (action.type) {
-        case CartActionType.ProductAdded:
-            const existingItem = newState.items.find((item) => item.id === action.payload.id);
+        case CartActionType.ProductAdded: {
+            const newItem = action.payload;
+            const indexToUpdate = newState.items.findIndex(c => c.id === action.payload.id);
+      
             newState.totalQuantity++;
-            if (!existingItem) {
+            if (indexToUpdate === -1) {
                 newState.items.push({
-                    id: action.payload.id,
-                    price: action.payload.price,
+                    id: newItem.id,
+                    price: newItem.price,
                     quantity: 1,
-                    totalPrice: action.payload.price,
-                    title: action.payload.title
+                    totalPrice: newItem.price,
+                    title: newItem.title
                 });
             } else {
-                existingItem.quantity++;
-                existingItem.totalPrice = existingItem.totalPrice + action.payload.price;
+                newState.items[indexToUpdate].quantity++;
+                newState.items[indexToUpdate].totalPrice = newState.items[indexToUpdate].totalPrice + newItem.price;
             }
             break;
 
-        case CartActionType.ProductDeleted:
+        }
+
+        case CartActionType.ProductDeleted: {
             const id = action.payload;
-            const existingItem_delete = newState.items.find(item => item.id === id);
+            const existingItem = newState.items.find(item => item.id === id);
             newState.totalQuantity--;
-            if (existingItem_delete.quantity === 1) {
+            if (existingItem.quantity === 1) {
                 newState.items = newState.items.filter(item => item.id !== id);
             } else {
-                existingItem_delete.quantity--;
+                existingItem.quantity--;
             }
             break;
-
-        default:
-            return newState;
+        }
     }
 
     return newState;

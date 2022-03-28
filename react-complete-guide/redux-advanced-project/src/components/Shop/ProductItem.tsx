@@ -4,18 +4,16 @@ import {useAppDispatch} from "../../redux/hooks";
 import {productAddedAction} from "../../redux/CartState";
 import ProductModel from "../../models/ProductModel";
 
-const ProductItem = (props: ProductModel) => {
-    const dispatch = useAppDispatch();
+interface ProductItemProps {
+    item: ProductModel;
+}
 
-    const {title, price, description, id} = props;
+const ProductItem = (props: ProductItemProps) => {
+    const dispatch = useAppDispatch();
 
     const addToCartHandler = () => {
         dispatch(
-            productAddedAction({
-                id,
-                title,
-                price,
-            })
+            productAddedAction(props.item)
         );
     };
 
@@ -23,10 +21,10 @@ const ProductItem = (props: ProductModel) => {
         <li className={classes.item}>
             <Card>
                 <header>
-                    <h3>{title}</h3>
-                    <div className={classes.price}>${price.toFixed(2)}</div>
+                    <h3>{props.item.title}</h3>
+                    <div className={classes.price}>${props.item.price.toFixed(2)}</div>
                 </header>
-                <p>{description}</p>
+                <p>{props.item.description}</p>
                 <div className={classes.actions}>
                     <button onClick={addToCartHandler}>Add to Cart</button>
                 </div>
