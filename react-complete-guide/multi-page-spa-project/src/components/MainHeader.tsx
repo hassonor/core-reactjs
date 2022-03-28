@@ -13,7 +13,7 @@ const MainHeader = (): JSX.Element => {
             <ul>
                 <li>
                     <NavLink style={({isActive}) =>
-                        isActive ? activeStyle : undefined} to="/">Welcome</NavLink>
+                        isActive ? activeStyle : undefined} to="/welcome">Welcome</NavLink>
                 </li>
                 <li>
                     <NavLink style={({isActive}) =>
