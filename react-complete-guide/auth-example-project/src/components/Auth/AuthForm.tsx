@@ -1,10 +1,16 @@
-import {SyntheticEvent, useState, useRef} from 'react';
+import {SyntheticEvent, useState, useRef, useContext} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 import classes from './AuthForm.module.css';
+import AuthContext from "../../store/auth-context";
 
 const AuthForm = () => {
+        const navigate = useNavigate();
         const emailInputRef = useRef<HTMLInputElement | null>(null);
         const passwordInputRef = useRef<HTMLInputElement | null>(null);
+
+        const authCtx = useContext(AuthContext);
+
         const [isLogin, setIsLogin] = useState(true);
         const [isLoading, setIsLoading] = useState(false);
 
@@ -48,7 +54,8 @@ const AuthForm = () => {
                     }
                 })
                 .then((data) => {
-                    console.log(data.idToken);
+                    authCtx.login(data.idToken);
+                    navigate("/");
                 })
                 .catch((err) => {
                     alert(err.message);

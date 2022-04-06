@@ -8,7 +8,7 @@ function App(): JSX.Element {
     return (
         <Layout>
             <Routes>
-                <Route path="/welcome" element={<HomePage/>}/>
+                <Route path="/" element={<HomePage/>}/>
                 <Route path="/auth" element={<AuthPage/>}/>
                 <Route path="/profile" element={<UserProfile/>}/>
             </Routes>
