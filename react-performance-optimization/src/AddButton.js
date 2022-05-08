@@ -1,8 +1,7 @@
 import React from "react";
 
-export class AddButton extends React.Component {
-  render() {
-    const { onClick } = this.props;
+export const AddButton = React.memo(function AddButton({onClick}){
+
 
     return (
       <button
@@ -23,5 +22,4 @@ export class AddButton extends React.Component {
         Add
       </button>
     );
-  }
-}
+});

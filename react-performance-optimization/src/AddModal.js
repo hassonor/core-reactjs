@@ -4,7 +4,7 @@ import Confetti from "react-confetti";
 
 Modal.setAppElement("#root");
 
-export function AddModal({ isOpen, onAdd, onClose }) {
+ function AddModal({ isOpen, onAdd, onClose }) {
   const [cardText, setCardText] = useState("");
   const [isDone, setIsDone] = useState(false);
 
@@ -101,3 +101,5 @@ export function AddModal({ isOpen, onAdd, onClose }) {
     </Modal>
   );
 }
+
+export default AddModal;
