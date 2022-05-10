@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon -r esm server.js"
   },
   "keywords": [],
   "author": "Or Hasson",
@@ -13,6 +13,7 @@
     "nodemon": "^2.0.16"
   },
   "dependencies": {
+    "esm": "^3.2.25",
     "express": "^4.18.1"
   }
 }
