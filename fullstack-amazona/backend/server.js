@@ -1,9 +1,12 @@
 import express from 'express';
+import cors from 'cors';
 import data from './data.js';
 
 const app = express();
+app.use(cors());
 // test
 app.get('/api/products', (req, res) => {
+    
     res.send(data.products);
 });
 

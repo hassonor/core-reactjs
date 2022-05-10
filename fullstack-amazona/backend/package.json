@@ -13,6 +13,7 @@
     "nodemon": "^2.0.16"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "esm": "^3.2.25",
     "express": "^4.18.1"
   }
