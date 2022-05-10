@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    build:
+      context: ./globoappserver
+    ports:
+      - "8080:8080"
+    container_name: api-server
+  ui:
+    build:
+      context: ./globoapp
+    ports:
+      - "5200:5200"
+    stdin_open: true
