@@ -40,6 +40,10 @@ main {
     max-width: 400px;
 }
 
+.img-large {
+    max-width: 100%;
+}
+
 .product-info {
     padding: 1rem;
 }
