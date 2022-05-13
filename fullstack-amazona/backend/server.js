@@ -1,15 +1,13 @@
-if (process.env.NODE_ENV === "test") {
-    global.config = require("./config-test.json");
-} else {
-    global.config = require(process.env.NODE_ENV === "production"
-        ? "./config-prod.json"
-        : "./config-dev.json");
-}
 const morgan = require('morgan')
 import express from 'express';
 import helmet from "helmet";
 import cors from 'cors';
 import data from './data.js';
+
+import dotenv from 'dotenv';
+
+import('./dal/dal')
+dotenv.config();
 
 const app = express();
 app.use(morgan("dev"));
