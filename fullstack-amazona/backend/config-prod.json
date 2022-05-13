@@ -1,0 +1,6 @@
+{
+  "isProduction:": false,
+  "database": {
+    "connectionString": "mongodb://localhost:27017/amazona"
+  }
+}
