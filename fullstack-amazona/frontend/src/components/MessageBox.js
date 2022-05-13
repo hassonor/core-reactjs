@@ -1,9 +1,5 @@
-import {Alert, Spinner} from "react-bootstrap";
+import Alert from 'react-bootstrap/Alert';
 
-const LoadingBox = (props) => {
-    return (<Spinner animation="border" role="status">
-        <Alert variant={props.variant || 'info'}>{props.children}</Alert>
-    </Spinner>)
+export default function MessageBox(props) {
+  return <Alert variant={props.variant || 'info'}>{props.children}</Alert>;
 }
-
-export default LoadingBox;

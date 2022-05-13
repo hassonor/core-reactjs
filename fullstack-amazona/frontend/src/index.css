@@ -26,13 +26,13 @@ main {
     justify-content: center;
 }
 
+.rating span {
+    color: #ffc000;
+}
+
 .product {
     border: 1px #404040 solid;
     margin: 1rem;
-}
-
-.rating span {
-    color: #ffc000;
 }
 
 .product img {
@@ -40,10 +40,14 @@ main {
     max-width: 400px;
 }
 
+.product-info {
+    padding: 1rem;
+}
+
 .img-large {
     max-width: 100%;
 }
 
-.product-info {
-    padding: 1rem;
+.img-thumbnail {
+    height: 80px;
 }
