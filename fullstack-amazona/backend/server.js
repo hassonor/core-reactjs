@@ -1,13 +1,11 @@
-import seedRouter from "./routes/seedRoutes";
-
 const morgan = require('morgan')
 import express from 'express';
 import helmet from "helmet";
 import cors from 'cors';
-import data from './data.js';
-
 import dotenv from 'dotenv';
+import seedRouter from "./routes/seedRoutes";
 import productRouter from "./routes/productRoutes";
+import userRouter from "./routes/userRoutes"
 
 import('./dal/dal')
 dotenv.config();
@@ -21,7 +19,12 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
+app.use('/api/users', userRouter);
 
+
+app.use((err, req, res, next) => {
+    res.status(500).send({message: err.message});
+})
 
 app.use("*", (request, response) => response.status(404).send("Route not found."));
 
