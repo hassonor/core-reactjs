@@ -1,11 +1,12 @@
-const morgan = require('morgan')
+const morgan = require('morgan') // using require here to prevent warning bug
 import express from 'express';
 import helmet from "helmet";
 import cors from 'cors';
 import dotenv from 'dotenv';
 import seedRouter from "./routes/seedRoutes";
 import productRouter from "./routes/productRoutes";
-import userRouter from "./routes/userRoutes"
+import userRouter from "./routes/userRoutes";
+import orderRouter from "./routes/orderRoutes";
 
 import('./dal/dal')
 dotenv.config();
@@ -20,6 +21,7 @@ app.use(express.urlencoded({extended: true}));
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
 
 
 app.use((err, req, res, next) => {
