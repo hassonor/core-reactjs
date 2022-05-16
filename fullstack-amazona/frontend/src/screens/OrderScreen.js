@@ -16,6 +16,7 @@ const reducer = (state, action) => {
 }
 
 export default function OrderScreen() {
+    
     const [{loading, error, order}, dispatch] = useReducer(reducer, {
         loading: true,
         order: {},
