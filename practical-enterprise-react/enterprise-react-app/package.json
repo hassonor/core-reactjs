@@ -1,0 +1,129 @@
+{
+  "name": "enterprise-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.7",
+    "@reduxjs/toolkit": "^1.8.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/fontfaceobserver": "^2.1.0",
+    "@types/jest": "^27.5.2",
+    "@types/material-ui": "^0.21.12",
+    "@types/node": "^16.11.43",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-helmet": "^6.1.5",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-test-renderer": "^18.0.0",
+    "@types/styled-components": "^5.1.25",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@types/webpack-env": "^1.17.0",
+    "@types/yup": "^0.29.14",
+    "axios": "^0.27.2",
+    "clsx": "^1.2.1",
+    "cross-env": "^7.0.3",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.7.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "plop": "^2.7.4",
+    "fontfaceobserver": "^2.3.0",
+    "formik": "^2.2.9",
+    "i18next": "^21.8.13",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "jest-styled-components": "^7.0.8",
+    "node-plop": "^0.31.0",
+    "react": "^18.2.0",
+    "react-app-polyfill": "^3.0.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^1.3.0",
+    "react-i18next": "^11.18.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-test-renderer": "^18.2.0",
+    "redux-saga": "^1.1.3",
+    "reselect": "^4.1.6",
+    "sanitize.css": "^13.0.0",
+    "serve": "^13.0.4",
+    "shelljs": "^0.8.5",
+    "styled-components": "^5.3.5",
+    "stylelint": "^14.9.1",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4",
+    "web-vitals": "^2.1.4",
+    "webpack-env": "^0.8.0",
+    "yup": "^0.32.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/test-generators.ts",
+    "cypress:open": "cypress:open",
+    "start:prod": "npm run build && serve -s build",
+    "checkTs": "tsc --noEmit",
+    "eslint": "eslint --ext js,ts,tsx",
+    "lint": "npm run eslint -- src",
+    "lint:fix": "npm run eslint -- --fix src",
+    "lint:css": "stylelint src/**/*.css",
+    "generate": "cross-env TS_NODE_PROJECT='./internals/ts-node.tsconfig.json' plop --plopfile internals/generators/plopfile.ts",
+    "prettify": "prettier --write"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.2",
+    "cypress": "^10.3.0",
+    "json-server": "^0.17.0",
+    "json-server-auth": "^2.1.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "npm": ">=6.4.1",
+    "node": ">=10.13.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*/*.d.ts",
+      "!src/**/*/Loadable.{js,jsx,ts,tsx}",
+      "!src/**/*/types.ts",
+      "!src/index.tsx",
+      "!src/serviceWorker.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
+  }
+}
