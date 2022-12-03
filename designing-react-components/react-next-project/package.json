@@ -12,8 +12,8 @@
   "author": "Or Hasson",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.26.0",
-    "next": "^12.1.0",
+    "axios": "^0.27.2",
+    "next": "^12.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-placeholder": "^4.1.0"
